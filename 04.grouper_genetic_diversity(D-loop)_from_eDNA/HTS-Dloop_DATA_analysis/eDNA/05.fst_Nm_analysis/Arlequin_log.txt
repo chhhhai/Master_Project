@@ -1,3 +1,0 @@
-Log file path: C:\Users\Admin\Desktop\Arlequin_log.txt
-Core Program Directory: E:/WinArl35/WinArl35/
-Random number generator initialized with lidum=1449468
