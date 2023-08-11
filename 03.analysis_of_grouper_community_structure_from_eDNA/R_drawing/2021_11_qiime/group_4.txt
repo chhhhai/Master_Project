@@ -1,0 +1,9 @@
+sample	group
+WZ	A
+MW	A
+BJ	A
+WLD	A
+HLD_A	A
+HLD_B	A
+POND_A	A
+POND_B	A
