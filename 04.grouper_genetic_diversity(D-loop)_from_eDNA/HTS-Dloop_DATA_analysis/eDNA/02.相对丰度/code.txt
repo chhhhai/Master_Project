@@ -1,0 +1,69 @@
+library(ggplot2)
+library(ggalluvial)
+library(tidyverse)
+library(cols4all)
+setwd('C:/Users/Admin/Desktop/')
+#本地数据读入：
+df <- read.csv('OTUs-Group-1.csv',header = T)
+#转换为因子，指定绘图顺序：
+df$ASVs <- factor(df$ASVs,levels = unique(df$ASVs))
+
+df$Groups <- factor(df$Groups,levels =c("2021_MW","2021_WLD","2021_BJ","2021_WZ","2021_HLDB","2021_HLDN","2022_MW","2022_WLD","2022_BJ","2022_WZ","2022_HLDB","2022_HLDN"))
+
+c4a_gui() #查看/挑选色板
+mycol <- c4a('vivid',12) #选取配色
+mycol
+mycol <- c("#FDCDAC","#CBD5E8","#E58606","#5D69B1","#52BCA3","#99C945","#CC61B0","#24796C","#DAA51B","#2F8AC4","#764E9F","#ED645A","#CC3A8E","#A5AA99","#B3E2CD")
+
+p <- ggplot(df, aes(x = Groups, y = OTUs, fill = ASVs)) +
+  geom_bar(position = "fill", stat="identity", color = 'white', alpha = 1, width = 0.95) +
+  scale_fill_manual(values = mycol) +
+  scale_y_continuous(expand = c(0,0)) +
+  theme_classic()
+pp <- p+labs(x = 'Groups', y = "relative abundance")+theme(axis.title.x=element_text(face="bold", color="black",size=20,family="serif"),
+                                                   axis.title.y = element_text(colour="black",size=20,face="bold",family="serif"),
+                                                   axis.text.x = element_text(colour="black",size=16,face="bold",family="serif"),
+                                                   axis.text.y = element_text(colour="black",size=16,face="bold",family="serif"),
+                                                   legend.text = element_text(colour="black",size=12,face="bold",family="serif"),
+                                                   legend.title = element_text(colour="black",size=16,face="bold",family="serif"))
+
+
+ggsave('test.tiff', pp, device = "tiff", dpi = 300, 
+       width=12, height=8, unit = "in")
+
+
+
+
+
+library(ggplot2)
+library(ggalluvial)
+library(tidyverse)
+library(cols4all)
+setwd('C:/Users/Admin/Desktop/')
+#本地数据读入：
+df <- read.csv('OTUs-Group-2.csv',header = T)
+#转换为因子，指定绘图顺序：
+df$ASVs <- factor(df$ASVs,levels = unique(df$ASVs))
+
+df$Groups <- factor(df$Groups,levels =c("2021_MW","2021_WLD","2021_BJ","2021_WZ","2021_HLDB","2021_HLDN","2022_MW","2022_WLD","2022_BJ","2022_WZ","2022_HLDB","2022_HLDN"))
+
+mycol <- c("#FDCDAC","#CBD5E8","#E58606","#5D69B1","#52BCA3","#99C945","#CC61B0","#24796C","#DAA51B","#2F8AC4","#764E9F","#ED645A","#CC3A8E","#A5AA99","#B3E2CD")
+
+p <- ggplot(df, aes(x = Groups, y = OTUs, fill = ASVs)) +
+  geom_bar(position = "fill", stat="identity", color = 'white', alpha = 1, width = 0.95) +
+  scale_fill_manual(values = mycol) +
+  scale_y_continuous(expand = c(0,0)) +
+  theme_classic()
+pp <- p+labs(x = 'Groups', y = "relative abundance")+theme(axis.title.x=element_text(face="bold", color="black",size=20,family="serif"),
+                                                           axis.title.y = element_text(colour="black",size=20,face="bold",family="serif"),
+                                                           axis.text.x = element_text(colour="black",size=16,face="bold",family="serif"),
+                                                           axis.text.y = element_text(colour="black",size=16,face="bold",family="serif"),
+                                                           legend.text = element_text(colour="black",size=12,face="bold",family="serif"),
+                                                           legend.title = element_text(colour="black",size=16,face="bold",family="serif"))
+
+
+ggsave('test-1.tiff', pp, device = "tiff", dpi = 300, 
+       width=12, height=8, unit = "in")
+
+
+#######https://mp.weixin.qq.com/s?search_click_id=15235796593830731705-1676194270107-0258650233&__biz=MzIyOTY3MDA3MA==&mid=2247505848&idx=1&sn=37d82765e579e04321bba17f084c6b51&chksm=e8bdba61dfca33775364c94e57704013daca50614e7fd4b4d194c03c9be579e187aa0b51cb88&scene=7&key=8ff74d36aa81de563ee9e3c5bb951a6738903dc05f8675f9c6fc015baa5eda16f63ffc2a31ad11b8f9450ce5697ecd2679231578666a4fad28c5642d69cfbb88031f70077bb7287bf70c0c564b8f92d0c7dd2ffcca26faf2e008d22c498b33bd8c8cd969274df0cc52bafaadcb65c17737fc9002aeacd1377023c441fe77e7e5&ascene=0&uin=MTcxNTgzNzUyNQ%3D%3D&devicetype=Windows+8+x64&version=6308011a&lang=zh_CN&exportkey=n_ChQIAhIQcFAyq9XiObuZUZAMLj9rgxLfAQIE97dBBAEAAAAAABRqKkIH5d8AAAAOpnltbLcz9gKNyK89dVj01pQeZKsA9BlHAFayHKM7W8Q0KSQ17Q95hTYqkHdpdadgJbl7gaO0NRWMZ99B8yY%2FTStdjDzYYDgLHmnxwby3rujP38xVhBC5uVII9WslhHGkayBbZVhPXCoKMJOwAn6cHVHjkM0x96dhscjRRWecJmsrtB1d%2BMSiBxW%2FeAjnpmrLSl4lzukp4CdJntxy08F4lulK0QUCa1Om0HBGU9z%2FI6MWczNPleDTn90rM3gejw7XRY9noyjO2hU%3D&acctmode=0&pass_ticket=S2hr8wpq%2BwsAykPRKwskmv6hhvb52VChAoy2Q%2FEcMW3WYyexpjfMgtESS%2BDkXc5lM5GLc0E%2FO7Ef6JUN%2FkXxOg%3D%3D&wx_header=1&fontgear=2
