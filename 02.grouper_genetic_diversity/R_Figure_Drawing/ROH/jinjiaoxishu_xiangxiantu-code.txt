@@ -1,0 +1,31 @@
+
+library(ggplot2)
+
+library(ggpubr)
+library(readr)
+gwas_BW <- read_csv("E:/中山大学研究生（2021）/文章/生长_gwas_ddrad-seq/初稿/R-figure/gwas-xiiangxiantu/gwas_BW.csv")
+ggboxplot(gwas_BW,x = "type",y = "data")
+
+my_comparisons=list(c("A", "B","C"))
+
+5. 绘制改良版箱线图
+
+jinjiaoxishu_windowsize40$group <- factor(jinjiaoxishu_windowsize40$group, levels = c("A","B","C"))
+
+p1 <- ggboxplot(jinjiaoxishu_windowsize40,x = "group",y = "Froh_genome",color ='group', add = "jitter")+guides(color=guide_legend(title = "population"))+
+  labs(x = 'Population', y = "F-ROH")+theme(axis.title.x=element_text(face="bold", color="black",size=20,family="serif"),
+                                                  axis.title.y = element_text(colour="black",size=20,face="bold",family="serif"),
+                                                  axis.text.x = element_text(colour="black",size=16,face="bold",family="serif"),
+                                                  axis.text.y = element_text(colour="black",size=16,face="bold",family="serif"))
+p1
+
+ggsave('C:/Users/Admin/Desktop/基于ddrad-seq对斜带石斑鱼放流群体的遗传多样性分析和基于简化基因组D-loop比对-pipeline/ROH/F-ROH.jpg', p1, device = "jpg", dpi = 300, 
+       width=10, height=8, unit = "in")
+p1 <- ggboxplot(gwas_BW,x = "type",y = "data",color ='type', add = "jitter")+
+  
+  stat_compare_means(comparisons = my_comparisons,method = "t.test",label = "p.signif")+
+  
+  labs(x = 'Groups', y = "Body Weight (g)")+theme(axis.title.x=element_text(face="bold", color="black",size=20,family="serif"),
+                                                  axis.title.y = element_text(colour="black",size=20,face="bold",family="serif"),
+                                                  axis.text.x = element_text(colour="black",size=16,face="bold",family="serif"),
+                                                  axis.text.y = element_text(colour="black",size=16,face="bold",family="serif"))
