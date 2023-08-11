@@ -1,0 +1,90 @@
+Log file path: C:/Users/Admin/Desktop/3.res/Arlequin_log.txt
+Core Program Directory: E:/WinArl35/WinArl35/
+Random number generator initialized with lidum=-1233606
+Reading project profile section...
+done !
+Opening next project...
+C:/Users/Admin/Desktop/3.arp
+////////////////////////////////////////////////////////////////////
+RUN NUMBER 1 (16/02/23 at 15:01:46)
+////////////////////////////////////////////////////////////////////
+
+
+Reading Project: 
+Reading input file ...
+	Project file, Line #8 : Keyword "CompDistMatrix" is now obsolete. Please set this parameter directly throug the interface
+
+Reading Haplotype List ...
+done ! (0 ms)
+	Reading Samples section ...
+	Reading 2021_BJ ... 
+	done ! (0 ms)
+
+	Reading 2021_MW ... 
+	done ! (0 ms)
+
+	Reading 2021_WLD ... 
+	done ! (0 ms)
+
+	Reading 2021_WZ ... 
+	done ! (0 ms)
+
+	Reading 2021_HLDB ... 
+	done ! (0 ms)
+
+	Reading 2021_HLDN ... 
+	done ! (0 ms)
+
+   1 #[WARNING # 1] from function "Samples::NewRead()" : invalid value for "NbSamples"
+Warning: 6 samples are actually listed in project file, while 12 are defined in the [[Profile]] section
+
+	done reading Samples section! (0 ms)
+	Reading genetic structure ...
+	Warning: Keyword "IndividualLevel" defined on line 146 is obsolete. Activation of this option is now made through the interface.
+	done reading genetic structure! (0 ms)
+done ! (0 ms)
+
+------------------------------------------------------------------------
+  Checking all selected options...
+		Building vectors of alleles...
+		done in 0 ms
+  done!
+  check selected settings...
+  done!
+
+Population '2021_BJ' : 
+done in 0 ms
+
+Population '2021_MW' : 
+done in 0 ms
+
+Population '2021_WLD' : 
+done in 0 ms
+
+Population '2021_WZ' : 
+done in 0 ms
+
+Population '2021_HLDB' : 
+done in 0 ms
+
+Population '2021_HLDN' : 
+done in 0 ms
+		Beginning distance computations ...
+		done ! (0 ms)
+		Writing matrix to file ...
+		done ! (0 ms)
+	Computing pairwise Fst's ... 
+
+12 ms to compute pairwise differences and test significance
+
+All FST distances have been computed and written to file
+
+	done ! (12 ms)
+		done ! (12 ms)
+
+////////////////////////////////////////////////////////////////////
+END OF RUN NUMBER 1 (16/02/23 at 15:01:46))
+Total computing time for this run : 0h 0m 0s 201 ms
+////////////////////////////////////////////////////////////////////
+
+Successful run of C:/Users/Admin/Desktop/3.arp

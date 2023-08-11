@@ -1,0 +1,35 @@
+library(ggplot2)
+library(ggalluvial)
+library(tidyverse)
+library(cols4all)
+setwd('C:/Users/Admin/Desktop/HTS-Dloop_DATA_analysis/eDNA/02.相对丰度/')
+#本地数据读入：
+df <- read.csv('OTUs-Group-4-space.csv',header = T)
+#转换为因子，指定绘图顺序：
+df$ASVs <- factor(df$ASVs,levels = unique(df$ASVs))
+
+df$Groups <- factor(df$Groups,levels =c("MW","WLD","BJ","WZ","HLDB","HLDN"))
+
+c4a_gui() #查看/挑选色板
+mycol <- c4a('vivid',12) #选取配色
+mycol
+mycol <- c("#FDCDAC","#CBD5E8","#E58606","#5D69B1","#52BCA3","#99C945","#CC61B0","#24796C","#DAA51B","#2F8AC4","#764E9F","#ED645A","#CC3A8E","#A5AA99","#B3E2CD")
+
+p <- ggplot(df, aes(x = Groups, y = OTUs, fill = ASVs)) +
+  geom_bar(position = "fill", stat="identity", color = 'white', alpha = 1, width = 0.95) +
+  scale_fill_manual(values = mycol) +
+  scale_y_continuous(expand = c(0,0)) +
+  theme_classic()
+
+p
+pp <- p+labs(x = 'Groups', y = "relative abundance")+theme(axis.title.x=element_text(face="bold", color="black",size=20,family="serif"),
+                                                           axis.title.y = element_text(colour="black",size=20,face="bold",family="serif"),
+                                                           axis.text.x = element_text(colour="black",size=16,face="bold",family="serif"),
+                                                           axis.text.y = element_text(colour="black",size=16,face="bold",family="serif"),
+                                                           legend.text = element_text(colour="black",size=12,face="bold",family="serif"),
+                                                           legend.title = element_text(colour="black",size=16,face="bold",family="serif"))
+
+pp
+
+ggsave('space.jpg', pp, device = "jpg", dpi = 300, 
+       width=12, height=8, unit = "in")
