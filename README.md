@@ -6,3 +6,4 @@
 #### 03.analysis_of_grouper_community_structure_from_eDNA
 #### 04.grouper_genetic_diversity(D-loop)_from_eDNA
 #### 05.grouper_lncRNA_prediction
+#### 06.SSR_development_genome
